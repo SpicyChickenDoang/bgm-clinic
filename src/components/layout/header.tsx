@@ -2,26 +2,40 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Logo } from '@/components/logo';
 import { cn } from '@/lib/utils';
+import type { Locale } from '@/i18n-config';
+import { getDictionary } from '@/lib/get-dictionary';
 
-const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/about', label: 'About Us' },
-  { href: '/services', label: 'Services' },
-  { href: '/homecare', label: 'Homecare' },
-];
-
-export function Header() {
+export function Header({ lang }: { lang: Locale }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const [dictionary, setDictionary] = useState<any>(null);
+
+  useEffect(() => {
+    const fetchDict = async () => {
+      const dict = await getDictionary(lang);
+      setDictionary(dict);
+    };
+    fetchDict();
+  }, [lang]);
+
+  if (!dictionary) return null;
+
+  const navLinks = [
+    { href: `/${lang}`, label: dictionary.header.home },
+    { href: `/${lang}/about`, label: dictionary.header.about },
+    { href: `/${lang}/services`, label: dictionary.header.services },
+    { href: `/${lang}/homecare`, label: dictionary.header.homecare },
+  ];
 
   const NavLink = ({ href, label, className }: { href: string; label: string; className?: string }) => {
-    const isActive = pathname === href;
+    // Exact match for home, partial for others
+    const isActive = href === `/${lang}` ? pathname === href : pathname.startsWith(href);
     return (
       <Link
         href={href}
@@ -40,7 +54,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between">
-        <Logo />
+        <Logo lang={lang} />
         <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
           {navLinks.map((link) => (
             <NavLink key={link.href} {...link} />
@@ -48,7 +62,7 @@ export function Header() {
         </nav>
         <div className="flex items-center gap-2">
             <Button asChild className="hidden md:flex">
-                <Link href="/homecare">Book Now</Link>
+                <Link href={`/${lang}/homecare`}>{dictionary.header.bookNow}</Link>
             </Button>
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild className="md:hidden">
@@ -60,7 +74,7 @@ export function Header() {
             <SheetContent side="right">
                 <div className="flex flex-col h-full">
                     <div className="flex items-center justify-between border-b pb-4">
-                        <Logo />
+                        <Logo lang={lang} />
                         <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(false)}>
                             <X className="h-6 w-6" />
                         </Button>
@@ -72,7 +86,7 @@ export function Header() {
                     </nav>
                     <div className="mt-auto">
                       <Button asChild className="w-full">
-                          <Link href="/homecare" onClick={() => setIsMobileMenuOpen(false)}>Book Now</Link>
+                          <Link href={`/${lang}/homecare`} onClick={() => setIsMobileMenuOpen(false)}>{dictionary.header.bookNow}</Link>
                       </Button>
                     </div>
                 </div>

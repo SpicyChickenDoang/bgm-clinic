@@ -2,15 +2,20 @@ import type { Metadata } from 'next';
 import { PT_Sans } from 'next/font/google';
 import './globals.css';
 import { cn } from '@/lib/utils';
+import { Toaster } from '@/components/ui/toaster';
+import { i18n, type Locale } from '@/i18n-config';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
-import { Toaster } from '@/components/ui/toaster';
 
 const ptSans = PT_Sans({
   subsets: ['latin'],
   weight: ['400', '700'],
   variable: '--font-pt-sans',
 });
+
+export async function generateStaticParams() {
+  return i18n.locales.map((locale) => ({ lang: locale }));
+}
 
 export const metadata: Metadata = {
   title: 'BaliMedCare - Primary Care & 24/7 Homecare in Bali',
@@ -19,16 +24,18 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: { lang: Locale };
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang={params.lang} className="scroll-smooth">
       <body className={cn('min-h-screen bg-background font-body antialiased', ptSans.variable)}>
         <div className="relative flex min-h-dvh flex-col bg-background">
-          <Header />
+          <Header lang={params.lang} />
           <main className="flex-1">{children}</main>
-          <Footer />
+          <Footer lang={params.lang} />
         </div>
         <Toaster />
       </body>
