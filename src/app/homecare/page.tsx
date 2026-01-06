@@ -4,7 +4,7 @@ import { useState, useEffect, useTransition } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { HomecareForm } from "@/components/homecare-form";
 import { getSummary } from './actions';
-import { Contact, ShieldCheck, User, MapPin, BrainCircuit, Bot } from "lucide-react";
+import { Contact, ShieldCheck, User, MapPin, BrainCircuit, Bot, Droplets } from "lucide-react";
 import { useToast } from '@/hooks/use-toast';
 import { Skeleton } from '@/components/ui/skeleton';
 
