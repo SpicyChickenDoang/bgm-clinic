@@ -6,6 +6,7 @@ import { Toaster } from '@/components/ui/toaster';
 import { i18n, type Locale } from '@/i18n-config';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
+import { getDictionary } from '@/lib/get-dictionary';
 
 const ptSans = PT_Sans({
   subsets: ['latin'],
@@ -22,20 +23,22 @@ export const metadata: Metadata = {
   description: 'Your trusted partner for professional medical services in Bali. We offer general consultations, primary care, 24/7 homecare, IV therapy, and more.',
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
   params,
 }: Readonly<{
   children: React.ReactNode;
   params: { lang: Locale };
 }>) {
+  const dictionary = await getDictionary(params.lang);
+
   return (
     <html lang={params.lang} className="scroll-smooth">
       <body className={cn('min-h-screen bg-background font-body antialiased', ptSans.variable)}>
         <div className="relative flex min-h-dvh flex-col bg-background">
-          <Header lang={params.lang} />
+          <Header lang={params.lang} dictionary={dictionary.header} />
           <main className="flex-1">{children}</main>
-          <Footer lang={params.lang} />
+          <Footer lang={params.lang} dictionary={dictionary.footer} />
         </div>
         <Toaster />
       </body>

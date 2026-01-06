@@ -2,35 +2,25 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Logo } from '@/components/logo';
 import { cn } from '@/lib/utils';
 import type { Locale } from '@/i18n-config';
-import { getDictionary } from '@/lib/get-dictionary';
 
-export function Header({ lang }: { lang: Locale }) {
+export function Header({ lang, dictionary }: { lang: Locale, dictionary: any }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
-  const [dictionary, setDictionary] = useState<any>(null);
-
-  useEffect(() => {
-    const fetchDict = async () => {
-      const dict = await getDictionary(lang);
-      setDictionary(dict);
-    };
-    fetchDict();
-  }, [lang]);
 
   if (!dictionary) return null;
 
   const navLinks = [
-    { href: `/${lang}`, label: dictionary.header.home },
-    { href: `/${lang}/about`, label: dictionary.header.about },
-    { href: `/${lang}/services`, label: dictionary.header.services },
-    { href: `/${lang}/homecare`, label: dictionary.header.homecare },
+    { href: `/${lang}`, label: dictionary.home },
+    { href: `/${lang}/about`, label: dictionary.about },
+    { href: `/${lang}/services`, label: dictionary.services },
+    { href: `/${lang}/homecare`, label: dictionary.homecare },
   ];
 
   const NavLink = ({ href, label, className }: { href: string; label: string; className?: string }) => {
@@ -62,7 +52,7 @@ export function Header({ lang }: { lang: Locale }) {
         </nav>
         <div className="flex items-center gap-2">
             <Button asChild className="hidden md:flex">
-                <Link href={`/${lang}/homecare`}>{dictionary.header.bookNow}</Link>
+                <Link href={`/${lang}/homecare`}>{dictionary.bookNow}</Link>
             </Button>
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild className="md:hidden">
@@ -86,7 +76,7 @@ export function Header({ lang }: { lang: Locale }) {
                     </nav>
                     <div className="mt-auto">
                       <Button asChild className="w-full">
-                          <Link href={`/${lang}/homecare`} onClick={() => setIsMobileMenuOpen(false)}>{dictionary.header.bookNow}</Link>
+                          <Link href={`/${lang}/homecare`} onClick={() => setIsMobileMenuOpen(false)}>{dictionary.bookNow}</Link>
                       </Button>
                     </div>
                 </div>
