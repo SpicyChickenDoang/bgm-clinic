@@ -8,11 +8,16 @@ function getLocale(request: NextRequest): string | undefined {
   const negotiatorHeaders: Record<string, string> = {};
   request.headers.forEach((value, key) => (negotiatorHeaders[key] = value));
 
-  const locales: string[] = [...i18n.locales];
+  // @ts-ignore locales are readonly
+  const locales: string[] = i18n.locales;
   const languages = new Negotiator({ headers: negotiatorHeaders }).languages();
 
-  const locale = matchLocale(languages, locales, i18n.defaultLocale);
-  return locale;
+  try {
+    const locale = matchLocale(languages, locales, i18n.defaultLocale);
+    return locale;
+  } catch (e) {
+    return i18n.defaultLocale;
+  }
 }
 
 export function middleware(request: NextRequest) {
@@ -33,7 +38,7 @@ export function middleware(request: NextRequest) {
 
   if (pathnameIsMissingLocale) {
     const locale = getLocale(request);
-    return NextResponse.redirect(new URL(`/${locale}${pathname}`, request.url));
+    return NextResponse.redirect(new URL(`/${locale}${pathname.startsWith('/') ? '' : '/'}${pathname}`, request.url));
   }
 }
 

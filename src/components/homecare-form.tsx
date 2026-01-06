@@ -15,7 +15,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Loader2 } from "lucide-react";
-import type { HomecareRequest } from "@/app/homecare/page";
+import type { HomecareRequest } from "@/app/[lang]/homecare/page";
 
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters."),
@@ -29,11 +29,18 @@ type HomecareFormValues = z.infer<typeof formSchema>;
 interface HomecareFormProps {
   onSubmit: (data: HomecareRequest) => void;
   isLoading: boolean;
+  dictionary: any;
 }
 
-export function HomecareForm({ onSubmit, isLoading }: HomecareFormProps) {
+export function HomecareForm({ onSubmit, isLoading, dictionary }: HomecareFormProps) {
+  const t = dictionary;
   const form = useForm<HomecareFormValues>({
-    resolver: zodResolver(formSchema),
+    resolver: zodResolver(formSchema.extend({
+      name: z.string().min(2, t.nameError),
+      phone: z.string().min(8, t.phoneError),
+      address: z.string().min(10, t.addressError),
+      medicalCondition: z.string().min(5, t.conditionError),
+    })),
     defaultValues: {
       name: "",
       phone: "",
@@ -55,9 +62,9 @@ export function HomecareForm({ onSubmit, isLoading }: HomecareFormProps) {
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Full Name</FormLabel>
+              <FormLabel>{t.name}</FormLabel>
               <FormControl>
-                <Input placeholder="John Doe" {...field} />
+                <Input placeholder={t.namePlaceholder} {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -68,9 +75,9 @@ export function HomecareForm({ onSubmit, isLoading }: HomecareFormProps) {
           name="phone"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>WhatsApp / Phone Number</FormLabel>
+              <FormLabel>{t.phone}</FormLabel>
               <FormControl>
-                <Input placeholder="+62 812 3456 7890" {...field} />
+                <Input placeholder={t.phonePlaceholder} {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -81,9 +88,9 @@ export function HomecareForm({ onSubmit, isLoading }: HomecareFormProps) {
           name="address"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Full Address in Bali</FormLabel>
+              <FormLabel>{t.address}</FormLabel>
               <FormControl>
-                <Input placeholder="Villa Name, Street, Area (e.g., Canggu)" {...field} />
+                <Input placeholder={t.addressPlaceholder} {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -94,10 +101,10 @@ export function HomecareForm({ onSubmit, isLoading }: HomecareFormProps) {
           name="medicalCondition"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Briefly Describe Medical Condition/Needs</FormLabel>
+              <FormLabel>{t.condition}</FormLabel>
               <FormControl>
                 <Textarea
-                  placeholder="e.g., High fever and headache for 2 days"
+                  placeholder={t.conditionPlaceholder}
                   className="resize-none"
                   {...field}
                 />
@@ -110,10 +117,10 @@ export function HomecareForm({ onSubmit, isLoading }: HomecareFormProps) {
           {isLoading ? (
             <>
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              Submitting...
+              {t.submitting}
             </>
           ) : (
-            "Request Homecare Visit"
+            t.submit
           )}
         </Button>
       </form>
