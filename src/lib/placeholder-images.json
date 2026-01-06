@@ -1,3 +1,118 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-1",
+      "description": "A serene beach in Bali with a clear blue sky, evoking a sense of calm and health.",
+      "imageUrl": "https://images.unsplash.com/photo-1577717903315-1691ae25ab3f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxiYWxpJTIwYmVhY2h8ZW58MHx8fHwxNzY3Njc3NDEzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "bali beach"
+    },
+    {
+      "id": "service-consultation",
+      "description": "A doctor kindly talking to a patient in a bright, modern consultation room.",
+      "imageUrl": "https://images.unsplash.com/photo-1638202993928-7267aad84c31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxkb2N0b3IlMjBwYXRpZW50fGVufDB8fHx8MTc2NzY3NzQxM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "doctor patient"
+    },
+    {
+      "id": "service-primary-care",
+      "description": "A friendly general practitioner with a stethoscope around their neck.",
+      "imageUrl": "https://images.unsplash.com/photo-1580489944761-15a19d654956?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxkb2N0b3IlMjBwb3J0cmFpdHxlbnwwfHx8fDE3Njc2NzEwMTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "doctor portrait"
+    },
+    {
+      "id": "service-homecare",
+      "description": "A nurse visiting a patient at their home, providing care.",
+      "imageUrl": "https://images.unsplash.com/photo-1608979827489-2b855e79debe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxob21lJTIwbnVyc2V8ZW58MHx8fHwxNzY3Njc3NDEzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "home nurse"
+    },
+    {
+      "id": "service-iv",
+      "description": "A close-up of an IV drip bag in a clean, clinical setting.",
+      "imageUrl": "https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxpdiUyMGRyaXB8ZW58MHx8fHwxNzY3Njc3NDEzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "iv drip"
+    },
+    {
+      "id": "service-checkup",
+      "description": "Medical equipment for a general checkup, such as a blood pressure monitor and a thermometer.",
+      "imageUrl": "https://images.unsplash.com/photo-1655313719493-16ebe4906441?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxtZWRpY2FsJTIwZXF1aXBtZW50fGVufDB8fHx8MTc2NzY3NzQxM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "medical equipment"
+    },
+    {
+      "id": "service-outpatient",
+      "description": "A patient leaving a clinic with a smile.",
+      "imageUrl": "https://images.unsplash.com/photo-1639054218132-dac7778f9453?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8aGFwcHklMjBwYXRpZW50fGVufDB8fHx8MTc2NzY0NDA1NXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "happy patient"
+    },
+    {
+      "id": "doctor-1",
+      "description": "Portrait of Dr. Ayu Lestari, a smiling female doctor.",
+      "imageUrl": "https://images.unsplash.com/photo-1680204437044-011a94496b4a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxmZW1hbGUlMjBkb2N0b3J8ZW58MHx8fHwxNzY3NjM3OTY4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "female doctor"
+    },
+    {
+      "id": "doctor-2",
+      "description": "Portrait of Dr. Budi Santoso, a professional male doctor.",
+      "imageUrl": "https://images.unsplash.com/photo-1645066928295-2506defde470?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxtYWxlJTIwZG9jdG9yfGVufDB8fHx8MTc2NzY3NzQxM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "male doctor"
+    },
+    {
+      "id": "doctor-3",
+      "description": "Portrait of Nurse Wayan Surya, a friendly male nurse.",
+      "imageUrl": "https://images.unsplash.com/photo-1631815585553-a8a8d2361e2e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxtYWxlJTIwbnVyc2V8ZW58MHx8fHwxNzY3Njc3NDEzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "male nurse"
+    },
+    {
+      "id": "clinic-1",
+      "description": "The bright and welcoming reception area of the BaliMedCare clinic.",
+      "imageUrl": "https://images.unsplash.com/photo-1761570942699-775c59ac7fac?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjbGluaWMlMjByZWNlcHRpb258ZW58MHx8fHwxNzY3NjMxODcxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "clinic reception"
+    },
+    {
+      "id": "clinic-2",
+      "description": "A modern and clean patient examination room at BaliMedCare.",
+      "imageUrl": "https://images.unsplash.com/photo-1600947871775-082dd97e2d96?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y2xpbmljJTIwcm9vbXxlbnwwfHx8fDE3Njc2Nzc0MTN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "clinic room"
+    },
+    {
+      "id": "license-1",
+      "description": "A framed medical license and certification on a wall.",
+      "imageUrl": "https://images.unsplash.com/photo-1721370211238-d478a280d900?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxtZWRpY2FsJTIwbGljZW5zZXxlbnwwfHx8fDE3Njc2Nzc0MTN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "medical license"
+    },
+    {
+      "id": "instagram-1",
+      "description": "A photo of the BaliMedCare team smiling.",
+      "imageUrl": "https://images.unsplash.com/photo-1579684453423-f84349ef60b0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxtZWRpY2FsJTIwdGVhbXxlbnwwfHx8fDE3Njc2MDgyNzB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "medical team"
+    },
+    {
+      "id": "instagram-2",
+      "description": "A beautiful sunset view from the clinic.",
+      "imageUrl": "https://images.unsplash.com/photo-1566811851038-0580f1fb9082?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxiYWxpJTIwc3Vuc2V0fGVufDB8fHx8MTc2NzY3NzQxM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "bali sunset"
+    },
+    {
+      "id": "instagram-3",
+      "description": "A health tip graphic post.",
+      "imageUrl": "https://images.unsplash.com/photo-1636249253913-40e83d5423e9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxoZWFsdGglMjB0aXB8ZW58MHx8fHwxNzY3Njc3NDEzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "health tip"
+    },
+    {
+      "id": "instagram-4",
+      "description": "A patient testimonial quote.",
+      "imageUrl": "https://images.unsplash.com/photo-1583220819993-47cf6e7a5402?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cXVvdGUlMjBncmFwaGljfGVufDB8fHx8MTc2NzY3NzQxM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "quote graphic"
+    },
+    {
+      "id": "instagram-5",
+      "description": "A photo of a community health event.",
+      "imageUrl": "https://images.unsplash.com/photo-1565813086292-604790c8a97b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjb21tdW5pdHklMjBldmVudHxlbnwwfHx8fDE3Njc1Njc5MjF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "community event"
+    },
+    {
+      "id": "instagram-6",
+      "description": "A happy patient with a doctor.",
+      "imageUrl": "https://images.unsplash.com/photo-1639054218132-dac7778f9453?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8aGFwcHklMjBwYXRpZW50fGVufDB8fHx8MTc2NzY0NDA1NXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "happy patient"
+    }
+  ]
 }
