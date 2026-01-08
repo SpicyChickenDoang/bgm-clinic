@@ -150,51 +150,6 @@ export default async function Home({ params: { lang } }: { params: { lang: Local
         </div>
       </section>
       
-      {/* Trust Elements */}
-      <section className="bg-background py-20">
-        <div className="container mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold">{t.trusted}</h2>
-            <p className="text-muted-foreground mt-2 max-w-2xl mx-auto">
-              {t.trustedDesc}
-            </p>
-          </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            <div>
-              <h3 className="text-2xl font-bold mb-6">{t.meetDoctors}</h3>
-              <div className="space-y-6">
-                {doctors.slice(0, 2).map(doctor => {
-                   const doctorImage = PlaceHolderImages.find(p => p.id === doctor.imageId);
-                  return (
-                    <div key={doctor.name} className="flex items-center gap-4">
-                      {doctorImage && (
-                        <Avatar className="h-20 w-20">
-                          <AvatarImage src={doctorImage.imageUrl} alt={doctor.name} data-ai-hint={doctorImage.imageHint}/>
-                          <AvatarFallback>{doctor.name.charAt(0)}</AvatarFallback>
-                        </Avatar>
-                      )}
-                      <div>
-                        <h4 className="font-bold">{doctor.name}</h4>
-                        <p className="text-primary">{doctor.role}</p>
-                        <p className="text-sm text-muted-foreground mt-1">{doctor.bio}</p>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-               <Button asChild variant="outline" className="mt-8">
-                  <Link href={`/${lang}/about`}>{t.seeAllStaff}</Link>
-                </Button>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              {clinicImage1 && <Image src={clinicImage1.imageUrl} alt={clinicImage1.description} data-ai-hint={clinicImage1.imageHint} width={400} height={300} className="rounded-lg shadow-md object-cover aspect-video"/>}
-              {clinicImage2 && <Image src={clinicImage2.imageUrl} alt={clinicImage2.description} data-ai-hint={clinicImage2.imageHint} width={400} height={300} className="rounded-lg shadow-md object-cover aspect-video"/>}
-              {licenseImage && <Image src={licenseImage.imageUrl} alt={licenseImage.description} data-ai-hint={licenseImage.imageHint} width={400} height={300} className="rounded-lg shadow-md object-cover col-span-2 aspect-video"/>}
-            </div>
-          </div>
-        </div>
-      </section>
-      
       {/* Instagram Feed */}
       <section className="bg-card py-20">
         <div className="container mx-auto">
