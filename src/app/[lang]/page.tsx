@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { services, doctors } from '@/lib/data';
-import { Clock, Users, House } from 'lucide-react';
+import { Clock, Users, House, FileText, ShieldCheck, Ambulance } from 'lucide-react';
 import type { Locale } from '@/i18n-config';
 import { getDictionary } from '@/lib/get-dictionary';
 
@@ -18,6 +18,33 @@ const instagramImages = PlaceHolderImages.filter(p => p.id.startsWith('instagram
 export default async function Home({ params: { lang } }: { params: { lang: Locale } }) {
   const dictionary = await getDictionary(lang);
   const t = dictionary.home;
+
+  const whyBGMItems = [
+    {
+      icon: Clock,
+      title: t.whyBGM.open24Hours,
+    },
+    {
+      icon: Users,
+      title: t.whyBGM.licensedStaff,
+    },
+    {
+      icon: FileText,
+      title: t.whyBGM.englishReport,
+    },
+    {
+      icon: ShieldCheck,
+      title: t.whyBGM.insurance,
+    },
+    {
+      icon: House,
+      title: t.whyBGM.homeVisit,
+    },
+    {
+      icon: Ambulance,
+      title: t.whyBGM.ambulance,
+    },
+  ];
 
   return (
     <div className="flex flex-col">
@@ -52,29 +79,19 @@ export default async function Home({ params: { lang } }: { params: { lang: Local
         </div>
       </section>
 
-      {/* Key Highlights */}
+      {/* Why BGM Section */}
       <section className="bg-background py-16">
-        <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-          <div className="flex flex-col items-center">
-            <Clock className="w-12 h-12 text-primary mb-4" />
-            <h3 className="text-xl font-bold">{t.availability}</h3>
-            <p className="text-muted-foreground mt-2">
-              {t.availabilityDesc}
-            </p>
+        <div className="container mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold">{t.whyBGM.title}</h2>
           </div>
-          <div className="flex flex-col items-center">
-            <Users className="w-12 h-12 text-primary mb-4" />
-            <h3 className="text-xl font-bold">{t.professionals}</h3>
-            <p className="text-muted-foreground mt-2">
-              {t.professionalsDesc}
-            </p>
-          </div>
-          <div className="flex flex-col items-center">
-            <House className="w-12 h-12 text-primary mb-4" />
-            <h3 className="text-xl font-bold">{t.homecareServices}</h3>
-            <p className="text-muted-foreground mt-2">
-              {t.homecareServicesDesc}
-            </p>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 text-center">
+            {whyBGMItems.map((item, index) => (
+              <div key={index} className="flex flex-col items-center p-4">
+                <item.icon className="w-12 h-12 text-primary mb-4" />
+                <h3 className="text-lg font-bold">{item.title}</h3>
+              </div>
+            ))}
           </div>
         </div>
       </section>
