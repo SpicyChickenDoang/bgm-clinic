@@ -53,6 +53,10 @@
       "homecare": "Home Visit & Home Care",
       "mcu": "Medical Check-Up (MCU)"
     },
+    "aboutUs": {
+      "title": "ABOUT US",
+      "description": "Bali General Medical (BGM) is a licensed primary clinic focused on safe, comfortable, and international-standard medical services, with infusion therapy as our key service."
+    },
     "followJourney": "Follow Our Journey",
     "instagramHandle": "@balimedcare_official on Instagram",
     "getInTouch": "Get In Touch",
