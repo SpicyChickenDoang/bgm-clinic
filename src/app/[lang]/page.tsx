@@ -23,26 +23,32 @@ export default async function Home({ params: { lang } }: { params: { lang: Local
     {
       icon: Clock,
       title: t.whyBGM.open24Hours,
+      description: t.whyBGM.open24HoursDesc,
     },
     {
       icon: Users,
       title: t.whyBGM.licensedStaff,
+      description: t.whyBGM.licensedStaffDesc,
     },
     {
       icon: FileText,
       title: t.whyBGM.englishReport,
+      description: t.whyBGM.englishReportDesc,
     },
     {
       icon: ShieldCheck,
       title: t.whyBGM.insurance,
+      description: t.whyBGM.insuranceDesc,
     },
     {
       icon: House,
       title: t.whyBGM.homeVisit,
+      description: t.whyBGM.homeVisitDesc,
     },
     {
       icon: Ambulance,
       title: t.whyBGM.ambulance,
+      description: t.whyBGM.ambulanceDesc,
     },
   ];
 
@@ -80,17 +86,21 @@ export default async function Home({ params: { lang } }: { params: { lang: Local
       </section>
 
       {/* Why BGM Section */}
-      <section className="bg-background py-16">
+      <section className="bg-background py-16 md:py-24">
         <div className="container mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold">{t.whyBGM.title}</h2>
+            <p className="mt-2 max-w-2xl mx-auto text-muted-foreground">{t.whyBGM.subtitle}</p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 text-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {whyBGMItems.map((item, index) => (
-              <div key={index} className="flex flex-col items-center p-4">
-                <item.icon className="w-12 h-12 text-primary mb-4" />
-                <h3 className="text-lg font-bold">{item.title}</h3>
-              </div>
+              <Card key={index} className="flex flex-col items-center text-center p-6 transition-shadow hover:shadow-lg">
+                <div className="mb-4 rounded-full bg-primary/10 p-4 text-primary">
+                  <item.icon className="w-8 h-8" />
+                </div>
+                <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                <p className="text-muted-foreground text-sm">{item.description}</p>
+              </Card>
             ))}
           </div>
         </div>
