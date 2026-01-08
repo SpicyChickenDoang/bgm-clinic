@@ -27,7 +27,7 @@
       "licensedStaffDesc": "Tim kami terdiri dari para profesional medis bersertifikat dan berpengalaman yang berdedikasi untuk kesehatan Anda.",
       "englishReport": "Laporan Medis Bahasa Inggris",
       "englishReportDesc": "Kami menyediakan laporan medis dan faktur yang jelas dalam Bahasa Inggris untuk kenyamanan Anda.",
-      "insurance": "Asuransi Internasional",
+      "insurance": "Asuransi Internasional & TPA",
       "insuranceDesc": "Kami bekerja sama dengan berbagai penyedia asuransi internasional dan TPA untuk klaim yang lancar.",
       "homeVisit": "Layanan Kunjungan Rumah",
       "homeVisitDesc": "Dapatkan perawatan medis berkualitas dalam kenyamanan rumah, hotel, atau vila Anda.",
@@ -35,8 +35,16 @@
       "ambulanceDesc": "Dilengkapi untuk transportasi darurat untuk memastikan Anda sampai ke fasilitas yang tepat dengan aman."
     },
     "ourServices": "Layanan Infus Kami",
-    "ourServicesDesc": "Terapi infus dengan pengawasan medis untuk mendukung imunitas, pencernaan, energi, pemulihan, dan kebugaran",
+    "ourServicesDesc": "Terapi infus dengan pengawasan medis untuk mendukung imunitas, pencernaan, energi, pemulihan, dan kebugaran.",
     "learnMore": "Pelajari Lebih Lanjut",
+    "insurance": {
+      "title": "PASIEN INTERNASIONAL & ASURANSI",
+      "subtitle": "Kami melayani pasien internasional dan asuransi, termasuk:",
+      "item1": "Asuransi perjalanan & internasional",
+      "item2": "Koordinasi dengan TPA",
+      "item3": "Guarantee of Payment (GOP)",
+      "item4": "Dokumen medis berbahasa Inggris"
+    },
     "followJourney": "Ikuti Perjalanan Kami",
     "instagramHandle": "@balimedcare_official di Instagram",
     "getInTouch": "Hubungi Kami",

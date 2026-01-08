@@ -2,17 +2,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { services, doctors } from '@/lib/data';
-import { Clock, Users, House, FileText, ShieldCheck, Ambulance } from 'lucide-react';
+import { services } from '@/lib/data';
+import { Clock, Users, House, FileText, ShieldCheck, Ambulance, CheckCircle2 } from 'lucide-react';
 import type { Locale } from '@/i18n-config';
 import { getDictionary } from '@/lib/get-dictionary';
 
 const heroImage = PlaceHolderImages.find(p => p.id === 'hero-1');
-const clinicImage1 = PlaceHolderImages.find(p => p.id === 'clinic-1');
-const clinicImage2 = PlaceHolderImages.find(p => p.id === 'clinic-2');
-const licenseImage = PlaceHolderImages.find(p => p.id === 'license-1');
 const instagramImages = PlaceHolderImages.filter(p => p.id.startsWith('instagram-'));
 
 export default async function Home({ params: { lang } }: { params: { lang: Locale } }) {
@@ -50,6 +46,13 @@ export default async function Home({ params: { lang } }: { params: { lang: Local
       title: t.whyBGM.ambulance,
       description: t.whyBGM.ambulanceDesc,
     },
+  ];
+  
+  const insuranceItems = [
+    t.insurance.item1,
+    t.insurance.item2,
+    t.insurance.item3,
+    t.insurance.item4,
   ];
 
   return (
@@ -146,6 +149,26 @@ export default async function Home({ params: { lang } }: { params: { lang: Local
                 </Card>
               )
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* International & Insurance Patients Section */}
+      <section className="bg-background py-16 md:py-24">
+        <div className="container mx-auto">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold">{t.insurance.title}</h2>
+            <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
+              {t.insurance.subtitle}
+            </p>
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4">
+              {insuranceItems.map((item, index) => (
+                <div key={index} className="flex items-center gap-3 justify-center sm:justify-start">
+                  <CheckCircle2 className="w-5 h-5 text-primary" />
+                  <span className="text-foreground">{item}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

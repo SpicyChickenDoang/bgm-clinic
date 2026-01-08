@@ -37,6 +37,14 @@
     "ourServices": "Our Infusion Services",
     "ourServicesDesc": "Medically supervised infusion treatments to support immunity, digestion, energy, recovery, and wellness.",
     "learnMore": "Learn More",
+    "insurance": {
+      "title": "INTERNATIONAL & INSURANCE PATIENTS",
+      "subtitle": "We welcome international and insurance patients. We assist with:",
+      "item1": "Travel & International Insurance",
+      "item2": "TPA Coordination",
+      "item3": "Guarantee of Payment (GOP)",
+      "item4": "English Medical Documents"
+    },
     "followJourney": "Follow Our Journey",
     "instagramHandle": "@balimedcare_official on Instagram",
     "getInTouch": "Get In Touch",
