@@ -46,7 +46,7 @@
       "item4": "Dokumen medis berbahasa Inggris"
     },
     "medicalServices": {
-      "title": "MEDICAL SERVICES",
+      "title": "LAYANAN MEDIS",
       "outpatient": "Rawat Jalan",
       "lab": "Layanan Laboratorium",
       "infusion": "Terapi Infus",
@@ -59,6 +59,15 @@
     },
     "followJourney": "Ikuti Perjalanan Kami",
     "instagramHandle": "@balimedcare_official di Instagram",
+    "contact": {
+      "title": "KONTAK & PEMESANAN",
+      "open24Hours": "Buka 24 Jam",
+      "location": "Lokasi: Umalas, Bali",
+      "whatsapp": "WhatsApp: +62 xxx xxxx xxxx",
+      "email": "Email: info@baligeneralmedical.com",
+      "bookAppointment": "Buat Janji Temu",
+      "whatsappUs": "WhatsApp Kami"
+    },
     "getInTouch": "Hubungi Kami",
     "contactDesc": "Klinik kami terletak di jantung Bali. Kami melayani area yang luas di seluruh pulau. Sistem bertenaga AI kami terus memperbarui cakupan layanan kami berdasarkan permintaan perawatan di rumah. Lihat aksinya di halaman Perawatan di Rumah kami!",
     "phone": "Telepon",

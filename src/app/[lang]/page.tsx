@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { services } from '@/lib/data';
-import { Clock, Users, House, FileText, ShieldCheck, Ambulance, CheckCircle2, Stethoscope, Beaker, Droplets } from 'lucide-react';
+import { Clock, Users, House, FileText, ShieldCheck, Ambulance, CheckCircle2, Stethoscope, Beaker, Droplets, MapPin, Phone, Mail } from 'lucide-react';
 import type { Locale } from '@/i18n-config';
 import { getDictionary } from '@/lib/get-dictionary';
 
@@ -90,7 +90,7 @@ export default async function Home({ params: { lang } }: { params: { lang: Local
               <Link href={`/${lang}/homecare`}>{t.bookAppointment}</Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="border-accent text-accent hover:bg-accent hover:text-accent-foreground">
-              <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer">{t.whatsappNow}</a>
+              <a href="https://wa.me/62xxxxxxxxxx" target="_blank" rel="noopener noreferrer">{t.whatsappNow}</a>
             </Button>
           </div>
         </div>
@@ -227,24 +227,34 @@ export default async function Home({ params: { lang } }: { params: { lang: Local
         </div>
       </section>
 
-      {/* Contact & Location Summary */}
+      {/* CONTACT & BOOKING Section */}
       <section className="bg-card py-20">
          <div className="container mx-auto">
            <Card className="max-w-4xl mx-auto p-8 text-center">
              <CardHeader>
-               <CardTitle className="text-2xl md:text-3xl">{t.getInTouch}</CardTitle>
+               <CardTitle className="text-2xl md:text-3xl">{t.contact.title}</CardTitle>
              </CardHeader>
-             <CardContent>
-              <p className="text-muted-foreground mb-6">
-                {t.contactDesc}
-              </p>
-              <div className="flex flex-col md:flex-row justify-center items-center gap-8 text-lg">
-                <p><strong>{t.phone}:</strong> +62 123 456 7890</p>
-                <p><strong>{t.email}:</strong> contact@balimedcare.com</p>
+             <CardContent className="flex flex-col items-center gap-4">
+                <div className="flex items-center gap-2 text-muted-foreground">
+                    <Clock className="w-5 h-5"/>
+                    <span>{t.contact.open24Hours}</span>
+                </div>
+                <div className="flex items-center gap-2 text-muted-foreground">
+                    <MapPin className="w-5 h-5"/>
+                    <span>{t.contact.location}</span>
+                </div>
+                <div className="flex flex-col md:flex-row justify-center items-center gap-x-8 gap-y-4 text-lg mt-4">
+                    <a href="https://wa.me/62xxxxxxxxxx" className="flex items-center gap-2 hover:text-primary"><Phone className="w-5 h-5"/> {t.contact.whatsapp}</a>
+                    <a href="mailto:info@baligeneralmedical.com" className="flex items-center gap-2 hover:text-primary"><Mail className="w-5 h-5"/> {t.contact.email}</a>
+                </div>
+              <div className="mt-6 flex flex-col sm:flex-row gap-4">
+                <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+                  <Link href={`/${lang}/homecare`}>{t.contact.bookAppointment}</Link>
+                </Button>
+                <Button asChild size="lg" variant="outline">
+                  <a href="https://wa.me/62xxxxxxxxxx" target="_blank" rel="noopener noreferrer">{t.contact.whatsappUs}</a>
+                </Button>
               </div>
-              <Button asChild className="mt-8">
-                <Link href={`/${lang}/homecare`}>{t.requestHomecare}</Link>
-              </Button>
              </CardContent>
            </Card>
          </div>

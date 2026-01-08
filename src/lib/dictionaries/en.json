@@ -59,6 +59,15 @@
     },
     "followJourney": "Follow Our Journey",
     "instagramHandle": "@balimedcare_official on Instagram",
+    "contact": {
+      "title": "CONTACT & BOOKING",
+      "open24Hours": "Open 24 Hours",
+      "location": "Location: Umalas, Bali",
+      "whatsapp": "WhatsApp: +62 xxx xxxx xxxx",
+      "email": "Email: info@baligeneralmedical.com",
+      "bookAppointment": "Book Appointment",
+      "whatsappUs": "WhatsApp Us"
+    },
     "getInTouch": "Get In Touch",
     "contactDesc": "Our clinic is located in the heart of Bali. We serve a wide area across the island. Our AI-powered system constantly updates our service coverage based on homecare requests. See it in action on our Homecare page!",
     "phone": "Phone",

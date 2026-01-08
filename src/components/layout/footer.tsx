@@ -39,9 +39,9 @@ export function Footer({ lang, dictionary }: { lang: Locale, dictionary: any }) 
           <div>
             <h4 className="font-semibold mb-4">{dictionary.contactUs}</h4>
             <ul className="space-y-2 text-muted-foreground">
-              <li>contact@balimedcare.com</li>
-              <li>+62 123 456 7890</li>
-              <li>Kuta, Bali, Indonesia</li>
+              <li>info@baligeneralmedical.com</li>
+              <li>+62 xxx xxxx xxxx</li>
+              <li>Umalas, Bali</li>
             </ul>
           </div>
         </div>
