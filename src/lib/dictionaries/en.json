@@ -1,3 +1,4 @@
+
 {
   "header": {
     "home": "Home",
@@ -26,7 +27,7 @@
       "homeVisit": "Home Visit",
       "ambulance": "Ambulance Service"
     },
-    "ourServices": "Our Services",
+    "ourServices": "Our Infusion Services",
     "ourServicesDesc": "Comprehensive medical solutions tailored to your needs, from general checkups to specialized homecare.",
     "learnMore": "Learn More",
     "trusted": "Trusted & Professional",
