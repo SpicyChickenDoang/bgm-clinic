@@ -3,26 +3,22 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import { Menu, X, Globe } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Sheet,
   SheetContent,
   SheetTrigger,
 } from '@/components/ui/sheet';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
 import { Logo } from '@/components/logo';
 import { cn } from '@/lib/utils';
 import { i18n, type Locale } from '@/i18n-config';
 
-function LanguageSwitcher() {
+function LanguageToggle() {
   const pathname = usePathname();
   const currentLang = pathname.split('/')[1] as Locale;
+
+  const otherLang = i18n.locales.find(l => l !== currentLang) || i18n.defaultLocale;
 
   const redirectedPathName = (locale: Locale) => {
     if (!pathname) return '/';
@@ -32,26 +28,12 @@ function LanguageSwitcher() {
   };
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="icon">
-          <Globe className="h-[1.2rem] w-[1.2rem]" />
-          <span className="sr-only">Toggle language</span>
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
-        {i18n.locales.map(locale => (
-          <DropdownMenuItem key={locale} asChild>
-            <Link href={redirectedPathName(locale)} className={cn(
-              "flex items-center gap-2",
-              currentLang === locale && "font-bold"
-            )}>
-              <span className="text-sm uppercase">{locale}</span>
-            </Link>
-          </DropdownMenuItem>
-        ))}
-      </DropdownMenuContent>
-    </DropdownMenu>
+    <Button variant="outline" size="icon" asChild>
+      <Link href={redirectedPathName(otherLang)}>
+        <span className="text-sm font-bold uppercase">{otherLang}</span>
+        <span className="sr-only">Toggle language</span>
+      </Link>
+    </Button>
   );
 }
 
@@ -96,14 +78,14 @@ export function Header({ lang, dictionary }: { lang: Locale; dictionary: any }) 
         </nav>
         <div className="flex items-center gap-2">
           <div className="hidden md:flex items-center gap-2">
-             <LanguageSwitcher />
+             <LanguageToggle />
             <Button asChild>
               <Link href={`/${lang}/homecare`}>{dictionary.bookNow}</Link>
             </Button>
           </div>
          
           <div className="md:hidden flex items-center gap-2">
-             <LanguageSwitcher />
+             <LanguageToggle />
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild>
                 <Button variant="outline" size="icon">
