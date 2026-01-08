@@ -23,9 +23,9 @@
       "subtitle": "Mitra tepercaya Anda untuk layanan kesehatan profesional, andal, dan penuh kasih di Bali.",
       "open24Hours": "Buka 24 Jam",
       "open24HoursDesc": "Klinik dan layanan panggilan kami tersedia sepanjang waktu untuk memenuhi kebutuhan medis Anda kapan saja.",
-      "licensedStaff": "Dokter & Perawat Berlisensi",
+      "licensedStaff": "Dokter & Perawat Berizin",
       "licensedStaffDesc": "Tim kami terdiri dari para profesional medis bersertifikat dan berpengalaman yang berdedikasi untuk kesehatan Anda.",
-      "englishReport": "Laporan Medis Bahasa Inggris",
+      "englishReport": "Laporan Medis & Invoice Bahasa Inggris",
       "englishReportDesc": "Kami menyediakan laporan medis dan faktur yang jelas dalam Bahasa Inggris untuk kenyamanan Anda.",
       "insurance": "Asuransi Internasional & TPA",
       "insuranceDesc": "Kami bekerja sama dengan berbagai penyedia asuransi internasional dan TPA untuk klaim yang lancar.",
@@ -44,6 +44,14 @@
       "item2": "Koordinasi dengan TPA",
       "item3": "Guarantee of Payment (GOP)",
       "item4": "Dokumen medis berbahasa Inggris"
+    },
+    "medicalServices": {
+      "title": "MEDICAL SERVICES",
+      "outpatient": "Rawat Jalan",
+      "lab": "Layanan Laboratorium",
+      "infusion": "Terapi Infus",
+      "homecare": "Home Visit & Home Care",
+      "mcu": "Medical Check-Up (MCU)"
     },
     "followJourney": "Ikuti Perjalanan Kami",
     "instagramHandle": "@balimedcare_official di Instagram",

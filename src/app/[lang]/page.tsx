@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { services } from '@/lib/data';
-import { Clock, Users, House, FileText, ShieldCheck, Ambulance, CheckCircle2 } from 'lucide-react';
+import { Clock, Users, House, FileText, ShieldCheck, Ambulance, CheckCircle2, Stethoscope, Beaker, Droplets } from 'lucide-react';
 import type { Locale } from '@/i18n-config';
 import { getDictionary } from '@/lib/get-dictionary';
 
@@ -53,6 +53,14 @@ export default async function Home({ params: { lang } }: { params: { lang: Local
     t.insurance.item2,
     t.insurance.item3,
     t.insurance.item4,
+  ];
+
+  const medicalServicesItems = [
+    { icon: Stethoscope, label: t.medicalServices.outpatient },
+    { icon: Beaker, label: t.medicalServices.lab },
+    { icon: Droplets, label: t.medicalServices.infusion },
+    { icon: House, label: t.medicalServices.homecare },
+    { icon: FileText, label: t.medicalServices.mcu },
   ];
 
   return (
@@ -172,9 +180,26 @@ export default async function Home({ params: { lang } }: { params: { lang: Local
           </div>
         </div>
       </section>
+
+      {/* Medical Services Section */}
+      <section className="bg-card py-16 md:py-24">
+        <div className="container mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold">{t.medicalServices.title}</h2>
+          <div className="mt-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+            {medicalServicesItems.map((item, index) => (
+              <div key={index} className="flex flex-col items-center gap-3">
+                <div className="rounded-full bg-primary/10 p-5 text-primary">
+                  <item.icon className="w-10 h-10" />
+                </div>
+                <p className="font-semibold text-center">{item.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
       
       {/* Instagram Feed */}
-      <section className="bg-card py-20">
+      <section className="bg-background py-20">
         <div className="container mx-auto">
           <div className="text-center mb-12">
              <h2 className="text-3xl md:text-4xl font-bold">{t.followJourney}</h2>
@@ -191,7 +216,7 @@ export default async function Home({ params: { lang } }: { params: { lang: Local
       </section>
 
       {/* Contact & Location Summary */}
-      <section className="bg-background py-20">
+      <section className="bg-card py-20">
          <div className="container mx-auto">
            <Card className="max-w-4xl mx-auto p-8 text-center">
              <CardHeader>

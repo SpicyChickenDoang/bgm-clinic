@@ -45,6 +45,14 @@
       "item3": "Guarantee of Payment (GOP)",
       "item4": "English Medical Documents"
     },
+    "medicalServices": {
+      "title": "MEDICAL SERVICES",
+      "outpatient": "Outpatient Medical Care",
+      "lab": "Laboratory Services",
+      "infusion": "Infusion Therapy",
+      "homecare": "Home Visit & Home Care",
+      "mcu": "Medical Check-Up (MCU)"
+    },
     "followJourney": "Follow Our Journey",
     "instagramHandle": "@balimedcare_official on Instagram",
     "getInTouch": "Get In Touch",
