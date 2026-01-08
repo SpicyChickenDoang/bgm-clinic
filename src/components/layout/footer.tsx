@@ -46,7 +46,7 @@ export function Footer({ lang, dictionary }: { lang: Locale, dictionary: any }) 
           </div>
         </div>
         <div className="mt-12 pt-8 border-t text-center text-sm text-muted-foreground">
-          <p>&copy; {currentYear} BaliMedCare. {dictionary.copyright}</p>
+          <p>&copy; {currentYear} BGM. {dictionary.copyright}</p>
         </div>
       </div>
     </footer>

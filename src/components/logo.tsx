@@ -7,7 +7,7 @@ export function Logo({ className, lang = 'en' }: { className?: string, lang?: Lo
   return (
     <Link href={`/${lang}`} className={cn("flex items-center gap-2 text-xl font-bold text-primary", className)}>
       <HeartPulse className="h-6 w-6" />
-      <span>BaliMedCare</span>
+      <span>BGM</span>
     </Link>
   );
 }

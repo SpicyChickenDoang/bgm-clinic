@@ -19,7 +19,7 @@ export async function generateStaticParams() {
 }
 
 export const metadata: Metadata = {
-  title: 'BaliMedCare - Primary Care & 24/7 Homecare in Bali',
+  title: 'BGM - Primary Care & 24/7 Homecare in Bali',
   description: 'Your trusted partner for professional medical services in Bali. We offer general consultations, primary care, 24/7 homecare, IV therapy, and more.',
 };
 
