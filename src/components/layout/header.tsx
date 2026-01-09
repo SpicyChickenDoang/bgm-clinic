@@ -14,17 +14,17 @@ import { Logo } from '@/components/logo';
 import { cn } from '@/lib/utils';
 import { i18n, type Locale } from '@/i18n-config';
 
+function getCurrentLang(pathname: string): Locale {
+  const langFromPath = pathname.split('/')[1] as Locale;
+  if (i18n.locales.includes(langFromPath)) {
+    return langFromPath;
+  }
+  return i18n.defaultLocale;
+}
+
 function LanguageToggle() {
   const pathname = usePathname();
-  const [currentLang, setCurrentLang] = useState<Locale>(i18n.defaultLocale);
-
-  useEffect(() => {
-    const langFromPath = pathname.split('/')[1] as Locale;
-    if (i18n.locales.includes(langFromPath)) {
-      setCurrentLang(langFromPath);
-    }
-  }, [pathname]);
-
+  const currentLang = getCurrentLang(pathname);
   const otherLang = i18n.locales.find(l => l !== currentLang) || i18n.defaultLocale;
 
   const redirectedPathName = (locale: Locale) => {
@@ -47,18 +47,19 @@ function LanguageToggle() {
 export function Header({ lang, dictionary }: { lang: Locale; dictionary: any }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const currentLang = getCurrentLang(pathname);
 
   if (!dictionary) return null;
 
   const navLinks = [
-    { href: `/${lang}`, label: dictionary.home },
-    { href: `/${lang}/about`, label: dictionary.about },
-    { href: `/${lang}/services`, label: dictionary.services },
-    { href: `/${lang}/homecare`, label: dictionary.homecare },
+    { href: `/${currentLang}`, label: dictionary.home },
+    { href: `/${currentLang}/about`, label: dictionary.about },
+    { href: `/${currentLang}/services`, label: dictionary.services },
+    { href: `/${currentLang}/homecare`, label: dictionary.homecare },
   ];
 
   const NavLink = ({ href, label, className }: { href: string; label: string; className?: string }) => {
-    const isActive = href === `/${lang}` ? pathname === href : pathname.startsWith(href);
+    const isActive = href === `/${currentLang}` ? pathname === href : pathname.startsWith(href);
     return (
       <Link
         href={href}
@@ -77,7 +78,7 @@ export function Header({ lang, dictionary }: { lang: Locale; dictionary: any }) 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between">
-        <Logo lang={lang} />
+        <Logo lang={currentLang} />
         <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
           {navLinks.map(link => (
             <NavLink key={link.href} {...link} />
@@ -87,7 +88,7 @@ export function Header({ lang, dictionary }: { lang: Locale; dictionary: any }) 
           <div className="hidden md:flex items-center gap-2">
              <LanguageToggle />
             <Button asChild>
-              <Link href={`/${lang}/homecare`}>{dictionary.bookNow}</Link>
+              <Link href={`/${currentLang}/homecare`}>{dictionary.bookNow}</Link>
             </Button>
           </div>
          
@@ -103,7 +104,7 @@ export function Header({ lang, dictionary }: { lang: Locale; dictionary: any }) 
               <SheetContent side="right">
                 <div className="flex flex-col h-full">
                   <div className="flex items-center justify-between border-b pb-4">
-                    <Logo lang={lang} />
+                    <Logo lang={currentLang} />
                     <Button
                       variant="ghost"
                       size="icon"
@@ -120,7 +121,7 @@ export function Header({ lang, dictionary }: { lang: Locale; dictionary: any }) 
                   <div className="mt-auto">
                     <Button asChild className="w-full">
                       <Link
-                        href={`/${lang}/homecare`}
+                        href={`/${currentLang}/homecare`}
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         {dictionary.bookNow}
