@@ -6,8 +6,10 @@ import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Clock, UserCheck, PhoneCall } from "lucide-react";
 import type { Locale } from "@/i18n-config";
+import { getDictionary } from "@/lib/get-dictionary";
 
-export default function ServicesPage({ params: { lang }, dictionary }: { params: { lang: Locale }, dictionary: any }) {
+export default async function ServicesPage({ params: { lang } }: { params: { lang: Locale }}) {
+  const dictionary = await getDictionary(lang);
   const t = dictionary.services;
   return (
     <div className="bg-background">

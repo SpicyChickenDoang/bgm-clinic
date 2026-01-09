@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
@@ -16,7 +16,14 @@ import { i18n, type Locale } from '@/i18n-config';
 
 function LanguageToggle() {
   const pathname = usePathname();
-  const currentLang = pathname.split('/')[1] as Locale;
+  const [currentLang, setCurrentLang] = useState<Locale>(i18n.defaultLocale);
+
+  useEffect(() => {
+    const langFromPath = pathname.split('/')[1] as Locale;
+    if (i18n.locales.includes(langFromPath)) {
+      setCurrentLang(langFromPath);
+    }
+  }, [pathname]);
 
   const otherLang = i18n.locales.find(l => l !== currentLang) || i18n.defaultLocale;
 
@@ -29,7 +36,7 @@ function LanguageToggle() {
 
   return (
     <Button variant="outline" size="icon" asChild>
-      <Link href={redirectedPathName(otherLang)}>
+      <Link href={redirectedPathName(otherLang)} prefetch={false}>
         <span className="text-sm font-bold uppercase">{otherLang}</span>
         <span className="sr-only">Toggle language</span>
       </Link>

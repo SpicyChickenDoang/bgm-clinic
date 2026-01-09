@@ -17,15 +17,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Loader2 } from "lucide-react";
 import type { HomecareRequest } from "@/app/[lang]/homecare/page";
 
-const formSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters."),
-  phone: z.string().min(8, "Please enter a valid phone number."),
-  address: z.string().min(10, "Please enter a complete address in Bali."),
-  medicalCondition: z.string().min(5, "Please describe the medical condition."),
-});
-
-type HomecareFormValues = z.infer<typeof formSchema>;
-
 interface HomecareFormProps {
   onSubmit: (data: HomecareRequest) => void;
   isLoading: boolean;
@@ -34,13 +25,18 @@ interface HomecareFormProps {
 
 export function HomecareForm({ onSubmit, isLoading, dictionary }: HomecareFormProps) {
   const t = dictionary;
+
+  const formSchema = z.object({
+    name: z.string().min(2, t.nameError),
+    phone: z.string().min(8, t.phoneError),
+    address: z.string().min(10, t.addressError),
+    medicalCondition: z.string().min(5, t.conditionError),
+  });
+
+  type HomecareFormValues = z.infer<typeof formSchema>;
+
   const form = useForm<HomecareFormValues>({
-    resolver: zodResolver(formSchema.extend({
-      name: z.string().min(2, t.nameError),
-      phone: z.string().min(8, t.phoneError),
-      address: z.string().min(10, t.addressError),
-      medicalCondition: z.string().min(5, t.conditionError),
-    })),
+    resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
       phone: "",
@@ -80,7 +76,7 @@ export function HomecareForm({ onSubmit, isLoading, dictionary }: HomecareFormPr
                 <Input placeholder={t.phonePlaceholder} {...field} />
               </FormControl>
               <FormMessage />
-            </FormItem>
+            </Form-Item>
           )}
         />
         <FormField

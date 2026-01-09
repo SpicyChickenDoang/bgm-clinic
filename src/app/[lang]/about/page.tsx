@@ -6,8 +6,10 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import type { Locale } from '@/i18n-config';
+import { getDictionary } from '@/lib/get-dictionary';
 
-export default function AboutUsPage({ params: { lang }, dictionary }: { params: { lang: Locale }, dictionary: any }) {
+export default async function AboutUsPage({ params: { lang } }: { params: { lang: Locale }}) {
+  const dictionary = await getDictionary(lang);
   const licenseImage = PlaceHolderImages.find(p => p.id === 'license-1');
   const t = dictionary.about;
 

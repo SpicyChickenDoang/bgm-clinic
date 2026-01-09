@@ -4,10 +4,11 @@ import { useState, useEffect, useTransition } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { HomecareForm } from "@/components/homecare-form";
 import { getSummary } from '@/app/homecare/actions';
-import { User, ShieldCheck, MapPin, BrainCircuit, Bot, Droplets, PhoneCall } from "lucide-react";
+import { User, ShieldCheck, MapPin, BrainCircuit, Bot, Droplets } from "lucide-react";
 import { useToast } from '@/hooks/use-toast';
 import { Skeleton } from '@/components/ui/skeleton';
 import type { Locale } from '@/i18n-config';
+import { getDictionary } from '@/lib/get-dictionary';
 
 export type HomecareRequest = {
   name: string;
@@ -22,14 +23,21 @@ const initialRequests = [
   { address: 'Seminyak, Bali', medicalCondition: 'Dehydration, needs IV' },
 ];
 
-export default function HomecarePage({ params: { lang }, dictionary }: { params: { lang: Locale }, dictionary: any }) {
+export default function HomecarePage({ params: { lang } }: { params: { lang: Locale } }) {
   const [requests, setRequests] = useState<Array<{address: string, medicalCondition: string}>>(initialRequests);
   const [summary, setSummary] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
   const { toast } = useToast();
-  const t = dictionary.homecare;
+  const [dictionary, setDictionary] = useState<any>(null);
+
+  useEffect(() => {
+    getDictionary(lang).then(setDictionary);
+  }, [lang]);
+
+  const t = dictionary?.homecare;
 
   const fetchSummary = () => {
+    if (!t) return;
     startTransition(async () => {
       const result = await getSummary({ requests });
       if (result.error && requests.length > 0) {
@@ -47,7 +55,7 @@ export default function HomecarePage({ params: { lang }, dictionary }: { params:
   useEffect(() => {
     fetchSummary();
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); // Run on initial load
+  }, [t]); // Re-run when dictionary is loaded
 
   const handleFormSubmit = (data: HomecareRequest) => {
     const newRequest = { address: data.address, medicalCondition: data.medicalCondition };
@@ -71,6 +79,17 @@ export default function HomecarePage({ params: { lang }, dictionary }: { params:
       }
     });
   };
+
+  if (!t) {
+    return (
+      <div className="container mx-auto py-16 md:py-24">
+        <div className="space-y-4">
+          <Skeleton className="h-12 w-1/2 mx-auto" />
+          <Skeleton className="h-6 w-3/4 mx-auto" />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="bg-background">
