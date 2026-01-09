@@ -1,4 +1,4 @@
-import { Stethoscope, HeartPulse, Home, Droplets, ClipboardCheck, Activity, Shield, Zap, Flame, Dna, GlassWater, Bike, Sun } from 'lucide-react';
+import { Stethoscope, HeartPulse, Home, Droplets, ClipboardCheck, Activity, Shield, Zap, Flame, Dna, GlassWater, Bike, Sun, Atom, BrainCircuit } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
 export type Service = {
@@ -66,6 +66,24 @@ export const services: Service[] = [
     icon: Sun,
     imageId: 'service-homecare',
   },
+  {
+    title: 'Iron Infusion',
+    description: 'Replenish your iron levels to combat fatigue and improve energy.',
+    longDescription: 'An effective treatment for iron deficiency and anemia, our Iron Infusion directly delivers iron to your body, bypassing the gut for maximum absorption and quick results.',
+    whoIsItFor: 'Individuals with diagnosed iron deficiency, anemia, or those who struggle with oral iron supplements.',
+    availability: 'By Appointment',
+    icon: Droplets,
+    imageId: 'service-iron',
+  },
+  {
+    title: 'Pure NAD+ & NAD+ Booster',
+    description: 'Anti-aging and cellular energy enhancement for peak vitality.',
+    longDescription: 'NAD+ is a crucial coenzyme for cellular energy and repair. This infusion supports brain function, boosts metabolism, and promotes healthy aging from the inside out.',
+    whoIsItFor: 'Those seeking anti-aging benefits, improved cognitive function, and enhanced energy levels.',
+    availability: 'By Appointment',
+    icon: BrainCircuit,
+    imageId: 'service-nad',
+  }
 ];
 
 export type Doctor = {
