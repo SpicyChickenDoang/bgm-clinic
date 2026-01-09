@@ -6,7 +6,6 @@ import { ServicesOverviewSection } from '@/components/home/services-overview-sec
 import { InsuranceSection } from '@/components/home/insurance-section';
 import { MedicalServicesSection } from '@/components/home/medical-services-section';
 import { AboutUsSection } from '@/components/home/about-us-section';
-import { InstagramFeedSection } from '@/components/home/instagram-feed-section';
 import { ContactSection } from '@/components/home/contact-section';
 
 export default async function Home({ params: { lang } }: { params: { lang: Locale } }) {
@@ -21,7 +20,6 @@ export default async function Home({ params: { lang } }: { params: { lang: Local
       <InsuranceSection dictionary={t.insurance} />
       <MedicalServicesSection dictionary={t.medicalServices} />
       <AboutUsSection dictionary={t.aboutUs} />
-      <InstagramFeedSection dictionary={t} />
       <ContactSection lang={lang} dictionary={t.contact} />
     </div>
   );

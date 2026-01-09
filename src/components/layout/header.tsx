@@ -55,7 +55,7 @@ export function Header({ lang, dictionary }: { lang: Locale; dictionary: any }) 
     { href: `/${currentLang}`, label: dictionary.home },
     { href: `/${currentLang}/about`, label: dictionary.about },
     { href: `/${currentLang}/services`, label: dictionary.services },
-    { href: `/${currentLang}/homecare`, label: dictionary.homecare },
+    // { href: `/${currentLang}/homecare`, label: dictionary.homecare },
   ];
 
   const NavLink = ({ href, label, className }: { href: string; label: string; className?: string }) => {
