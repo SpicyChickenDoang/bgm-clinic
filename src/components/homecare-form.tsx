@@ -15,7 +15,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Loader2 } from "lucide-react";
-import type { HomecareRequest } from "@/app/[lang]/homecare/page";
+import type { HomecareRequest } from "@/components/homecare-client-page";
 
 interface HomecareFormProps {
   onSubmit: (data: HomecareRequest) => void;
@@ -76,7 +76,7 @@ export function HomecareForm({ onSubmit, isLoading, dictionary }: HomecareFormPr
                 <Input placeholder={t.phonePlaceholder} {...field} />
               </FormControl>
               <FormMessage />
-            </Form-Item>
+            </FormItem>
           )}
         />
         <FormField
