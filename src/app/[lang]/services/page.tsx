@@ -22,7 +22,7 @@ export default async function ServicesPage({ params: { lang } }: { params: { lan
 
       <div className="container mx-auto pb-24 space-y-16">
         {services.map((service, index) => {
-          const serviceImage = PlaceHolderImages.find(p => p.id === service.imageId);
+          // const serviceImage = PlaceHolderImages.find(p => p.id === service.imageId);
           return (
             <section key={service.title} id={service.title.toLowerCase().replace(/ /g, '-')} className="scroll-mt-20">
               <Card className="overflow-hidden lg:grid lg:grid-cols-2 lg:gap-8 items-center">
@@ -63,17 +63,14 @@ export default async function ServicesPage({ params: { lang } }: { params: { lan
                   </div>
                 </div>
 
-                {serviceImage && (
                   <div className="relative h-64 lg:h-full w-full">
                     <Image
-                      src={serviceImage.imageUrl}
-                      alt={serviceImage.description}
-                      data-ai-hint={serviceImage.imageHint}
+                      src={service.imageUrl}
+                      alt={service.description}
                       fill
                       className="object-cover"
                     />
                   </div>
-                )}
               </Card>
             </section>
           );

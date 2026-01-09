@@ -8,18 +8,36 @@ export type Service = {
   whoIsItFor: string;
   availability: string;
   icon: LucideIcon;
-  imageId: string;
+  imageUrl: string;
 };
 
 export const services: Service[] = [
   {
-    title: 'Immune Booster',
+    title: 'Basic Immune Booster',
     description: 'Strengthen your body\'s defenses. Available in Basic, Standard, and Super formulations.',
     longDescription: 'Our Immune Booster IV drips are packed with vitamins and antioxidants to help supercharge your immune system, protecting you from illness and helping you recover faster.',
     whoIsItFor: 'Travelers, or anyone feeling run-down or wanting to prevent sickness.',
     availability: 'Home Service / By Appointment',
     icon: Shield,
-    imageId: 'service-iv',
+    imageUrl: '/assets/image/basic-immune-booster.webp',
+  },
+  {
+    title: 'Standard Immune Booster',
+    description: 'Strengthen your body\'s defenses. Available in Basic, Standard, and Super formulations.',
+    longDescription: 'Our Immune Booster IV drips are packed with vitamins and antioxidants to help supercharge your immune system, protecting you from illness and helping you recover faster.',
+    whoIsItFor: 'Travelers, or anyone feeling run-down or wanting to prevent sickness.',
+    availability: 'Home Service / By Appointment',
+    icon: Shield,
+    imageUrl: '/assets/image/standard-immune-booster.webp',
+  },
+  {
+    title: 'Super Immune Booster',
+    description: 'Strengthen your body\'s defenses. Available in Basic, Standard, and Super formulations.',
+    longDescription: 'Our Immune Booster IV drips are packed with vitamins and antioxidants to help supercharge your immune system, protecting you from illness and helping you recover faster.',
+    whoIsItFor: 'Travelers, or anyone feeling run-down or wanting to prevent sickness.',
+    availability: 'Home Service / By Appointment',
+    icon: Shield,
+    imageUrl: '/assets/image/super-immune-booster.webp',
   },
   {
     title: 'Bali Belly & Digestive Care',
@@ -28,7 +46,7 @@ export const services: Service[] = [
     whoIsItFor: 'Anyone suffering from traveler\'s diarrhea, food poisoning, or digestive issues.',
     availability: '24/7 On-Call / Home Service',
     icon: Activity,
-    imageId: 'service-outpatient',
+    imageUrl: '/assets/image/super-bali-belly-iv.webp',
   },
   {
     title: 'GERD / Gastritis Infusion',
@@ -37,7 +55,7 @@ export const services: Service[] = [
     whoIsItFor: 'Individuals experiencing chronic acid reflux, heartburn, or gastritis.',
     availability: 'Home Service / By Appointment',
     icon: Flame,
-    imageId: 'service-consultation',
+    imageUrl: '/assets/image/gerd-infusion.webp',
   },
   {
     title: 'Candida IV Treatment',
@@ -46,7 +64,7 @@ export const services: Service[] = [
     whoIsItFor: 'Patients diagnosed with or suspecting systemic Candida overgrowth.',
     availability: 'By Appointment',
     icon: Dna,
-    imageId: 'service-primary-care',
+    imageUrl: '/assets/image/candida-iv-treatment.webp',
   },
   {
     title: 'Gym Power & Recovery Infusion',
@@ -55,7 +73,7 @@ export const services: Service[] = [
     whoIsItFor: 'Athletes, fitness enthusiasts, and anyone looking to optimize their workouts.',
     availability: 'Home Service / By Appointment',
     icon: Bike,
-    imageId: 'service-checkup',
+    imageUrl: '/assets/image/gym-power-infusion.webp',
   },
   {
     title: 'Hangover & Jet Lag Infusion',
@@ -64,7 +82,7 @@ export const services: Service[] = [
     whoIsItFor: 'Travelers, party-goers, or anyone needing a fast-track to feeling normal again.',
     availability: '24/7 On-Call / Home Service',
     icon: Sun,
-    imageId: 'service-homecare',
+    imageUrl: '/assets/image/hangover-infusion.webp',
   },
   {
     title: 'Iron Infusion',
@@ -73,7 +91,7 @@ export const services: Service[] = [
     whoIsItFor: 'Individuals with diagnosed iron deficiency, anemia, or those who struggle with oral iron supplements.',
     availability: 'By Appointment',
     icon: Droplets,
-    imageId: 'service-iron',
+    imageUrl: '/assets/image/iron-infusion.webp',
   },
   {
     title: 'Pure NAD+ & NAD+ Booster',
@@ -82,7 +100,7 @@ export const services: Service[] = [
     whoIsItFor: 'Those seeking anti-aging benefits, improved cognitive function, and enhanced energy levels.',
     availability: 'By Appointment',
     icon: BrainCircuit,
-    imageId: 'service-nad',
+    imageUrl: '/assets/image/Pure-NAD+.webp',
   }
 ];
 

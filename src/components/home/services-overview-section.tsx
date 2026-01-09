@@ -19,20 +19,16 @@ export function ServicesOverviewSection({ lang, dictionary }: { lang: Locale, di
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {services.map((service) => {
-                const serviceImage = PlaceHolderImages.find(p => p.id === service.imageId);
                 return (
                     <Card key={service.title} className="overflow-hidden transition-shadow hover:shadow-lg flex flex-col">
-                    {serviceImage && (
-                        <div className="relative h-40 w-full">
+                        <div className="relative h-80 w-full">
                         <Image
-                            src={serviceImage.imageUrl}
-                            alt={serviceImage.description}
-                            data-ai-hint={serviceImage.imageHint}
+                            src={service.imageUrl}
+                            alt={service.description}
                             fill
                             className="object-cover"
                             />
                         </div>
-                    )}
                     <CardHeader>
                         <CardTitle className="flex items-center gap-3 text-lg">
                         <service.icon className="w-6 h-6 text-primary flex-shrink-0" />

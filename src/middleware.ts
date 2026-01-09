@@ -27,6 +27,7 @@ export function middleware(request: NextRequest) {
     [
       '/manifest.json',
       '/favicon.ico',
+      '/assets'
       // Your other files in `public`
     ].includes(pathname)
   )
@@ -38,10 +39,19 @@ export function middleware(request: NextRequest) {
 
   if (pathnameIsMissingLocale) {
     const locale = getLocale(request);
+
+    if (locale === i18n.defaultLocale && i18n.localePrefix === 'as-needed') {
+      return NextResponse.rewrite(
+        new URL(`/${locale}${pathname}`, request.url)
+      )
+    }
+
     return NextResponse.redirect(new URL(`/${locale}${pathname.startsWith('/') ? '' : '/'}${pathname}`, request.url));
   }
 }
 
 export const config = {
-  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
+  matcher: [
+    '/((?!api|_next/static|_next/image|favicon.ico|assets|images|video|fonts).*)',
+  ],
 };
