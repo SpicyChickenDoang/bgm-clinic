@@ -17,13 +17,13 @@ export function ServicesOverviewSection({ lang, dictionary }: { lang: Locale, di
                 {t.ourServicesDesc}
                 </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {services.slice(0, 6).map((service) => {
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                {services.map((service) => {
                 const serviceImage = PlaceHolderImages.find(p => p.id === service.imageId);
                 return (
-                    <Card key={service.title} className="overflow-hidden transition-shadow hover:shadow-lg">
+                    <Card key={service.title} className="overflow-hidden transition-shadow hover:shadow-lg flex flex-col">
                     {serviceImage && (
-                        <div className="relative h-48 w-full">
+                        <div className="relative h-40 w-full">
                         <Image
                             src={serviceImage.imageUrl}
                             alt={serviceImage.description}
@@ -34,14 +34,14 @@ export function ServicesOverviewSection({ lang, dictionary }: { lang: Locale, di
                         </div>
                     )}
                     <CardHeader>
-                        <CardTitle className="flex items-center gap-3">
-                        <service.icon className="w-6 h-6 text-primary" />
+                        <CardTitle className="flex items-center gap-3 text-lg">
+                        <service.icon className="w-6 h-6 text-primary flex-shrink-0" />
                         {service.title}
                         </CardTitle>
                     </CardHeader>
-                    <CardContent>
-                        <p className="text-muted-foreground mb-4">{service.description}</p>
-                        <Button asChild variant="link" className="p-0 text-primary">
+                    <CardContent className="flex-grow flex flex-col">
+                        <p className="text-muted-foreground text-sm mb-4 flex-grow">{service.description}</p>
+                        <Button asChild variant="link" className="p-0 text-primary self-start">
                         <Link href={`/${lang}/services#${service.title.toLowerCase().replace(/ /g, '-')}`}>{t.learnMore}</Link>
                         </Button>
                     </CardContent>
